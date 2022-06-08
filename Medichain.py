@@ -123,6 +123,9 @@ def mine_block(records):
 
 @app.route('/get_chain', methods=['GET'])
 def get_chain():
+    if 'memPool' not in session:
+        session['memPool'] = []
+        
     memPool = session['memPool']
 
     response = {
